@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<main>
+		<p>
+		<time>
+
+		</time>
+		</p>
+	</main>
+</html>
+Current Date:
+<input type="text" id="currentDate">
+ 
+<script>
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  document.getElementById("currentDate").value = date;
+</script>
+Current Time:
+<input type="text" id="currentTime">
+ 
+<script>
+var today = new Date();
+var hours = today.getHours();
+var minutes = today.getMinutes();
+var seconds = today.getSeconds();
+if (hours > 12){
+	hours -= 12
+}
+var words = new Array(60);
+//words[1] = ('zero')//
+Words[0] = ('zero');
+Words[1] = ('one');
+Words[2] = ('two');
+Words[3] = ('three');
+Words[4] = ('four');
+Words[5] = ('five');
+Words[6] = ('six');
+Words[7] = ('seven');
+Words[8] = ('eight');
+Words[9] = ('nine');
+Words[10] = ('ten');
+Words[11] = ('eleven');
+Words[12] = ('twelve');
+Words[13] = ('thirteen');
+Words[14] = ('fourteen');
+Words[15] = ('fifteen');
+Words[16] = ('sixteen');
+Words[17] = ('seventeen');
+Words[18] = ('eighteen');
+Words[19] = ('nineteen');
+Words[20] = ('twenty');
+Words[21] = ('twenty-one');
+Words[22] = ('twenty-two');
+Words[23] = ('twenty-three');
+Words[24] = ('twenty-four');
+Words[25] = ('twenty-five');
+Words[26] = ('twenty-six');
+Words[27] = ('twenty-seven');
+Words[28] = ('twenty-eight');
+Words[29] = ('twenty-nine');
+Words[30] = ('thrity');
+Words[31] = ('thirty-one');
+Words[32] = ('thirty-two');
+Words[33] = ('thirty-three');
+Words[34] = ('thirty-four');
+Words[35] = ('thirty-five');
+Words[36] = ('thirty-six');
+Words[37] = ('thirty-seven');
+Words[38] = ('thirty-eight');
+Words[39] = ('thirty-nine');
+Words[40] = ('fourty');
+Words[41] = ('fourty-one');
+Words[42] = ('fourty-two');
+Words[43] = ('fourty-three');
+Words[44] = ('fourty-four');
+Words[45] = ('fourty-five');
+Words[46] = ('fourty-six');
+Words[47] = ('fourty-seven');
+Words[48] = ('fourty-eight');
+Words[49] = ('fourt-nine');
+Words[50] = ('fifty');
+Words[51] = ('fifty-one');
+Words[52] = ('fifty-two');
+Words[53] = ('fifty-three');
+Words[54] = ('fifty-four');
+Words[55] = ('fifty-five');
+Words[56] = ('fifty-six');
+Words[57] = ('fifty-seven');
+Words[58] = ('fifty-eight');
+Words[59] = ('fifty-nine');
+;
+
+
+ 
+
+//hours_words = words[hours]//
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  document.getElementById("currentTime").value = time;
+</script>
