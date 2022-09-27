@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<main>
-		<p>
-		<time>
+	<body>
+	<p id="test_text">
+		demo text
+	</p>
 
-		</time>
-		</p>
-	</main>
-</html>
 Current Date:
 <input type="text" id="currentDate">
  
@@ -17,8 +14,15 @@ Current Date:
   document.getElementById("currentDate").value = date;
 </script>
 Current Time:
-<input type="text" id="currentTime">
- 
+ <p type = "text" id = "current_hour">
+	NA
+ </p>
+ <p type = "text" id = 'current_minutes'>
+	NA
+ </p>
+ <p type = "text" id ='current_seconds'>
+	NA
+ </p>
 <script>
 var today = new Date();
 var hours = today.getHours();
@@ -27,8 +31,7 @@ var seconds = today.getSeconds();
 if (hours > 12){
 	hours -= 12
 }
-var words = new Array(60);
-//words[1] = ('zero')//
+var Words = new Array(60);
 Words[0] = ('zero');
 Words[1] = ('one');
 Words[2] = ('two');
@@ -89,12 +92,40 @@ Words[56] = ('fifty-six');
 Words[57] = ('fifty-seven');
 Words[58] = ('fifty-eight');
 Words[59] = ('fifty-nine');
-;
+
+
 
 
  
 
 //hours_words = words[hours]//
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  document.getElementById("currentTime").value = time;
+//var time = Words[today.getHours()] + ":" + Words[today.getMinutes()] + ":" + Words[today.getSeconds()];
+
+//document.getElementById("currentTime").innerText = time;
+	//today.getHours()
+	//today.getMinutes()
+	//today.getSeconds()
+	document.getElementById("current_hour").innerText = Words[today.getHours()];
+	document.getElementById("current_minutes").innerText = Words[today.getMinutes()];
+	document.getElementById("current_seconds").innerText = Words[today.getSeconds()];
 </script>
+
+<script>
+	Dark = false;
+ function darkMode() {
+	if (Dark == false) {
+ 		document.getElementById("test_text").style.backgroundColor = "Yellow";
+		document.bgColor = "Grey";
+		Dark = true;
+	}
+	else {
+		document.bgColor = "White";
+		Dark = false;
+	
+
+ }
+</script>
+
+		<button type="button" onclick="darkMode()">Dark mode</button>
+	</body>
+</html>
