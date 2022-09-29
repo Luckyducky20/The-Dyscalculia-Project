@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
-	<body>
+	<body background="wallpaper.png">
 	<p id="test_text">
 		demo text
 	</p>
-
+	<style>
+		h1 {
+			font-family: 'Oswald-Medium', 'Impact';
+		}
+	</style>
 Current Date:
-<input type="text" id="currentDate">
- 
-<script>
-  var today = new Date();
-  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  document.getElementById("currentDate").value = date;
-</script>
+<p type="text" id="currentDate">
+	<h1>
+		NA
+	</h1>
+	NA
+</p>
+
 Current Time:
  <p type = "text" id = "current_hour">
 	NA
@@ -23,109 +27,202 @@ Current Time:
  <p type = "text" id ='current_seconds'>
 	NA
  </p>
-<script>
-var today = new Date();
-var hours = today.getHours();
-var minutes = today.getMinutes();
-var seconds = today.getSeconds();
-if (hours > 12){
-	hours -= 12
-}
-var Words = new Array(60);
-Words[0] = ('zero');
-Words[1] = ('one');
-Words[2] = ('two');
-Words[3] = ('three');
-Words[4] = ('four');
-Words[5] = ('five');
-Words[6] = ('six');
-Words[7] = ('seven');
-Words[8] = ('eight');
-Words[9] = ('nine');
-Words[10] = ('ten');
-Words[11] = ('eleven');
-Words[12] = ('twelve');
-Words[13] = ('thirteen');
-Words[14] = ('fourteen');
-Words[15] = ('fifteen');
-Words[16] = ('sixteen');
-Words[17] = ('seventeen');
-Words[18] = ('eighteen');
-Words[19] = ('nineteen');
-Words[20] = ('twenty');
-Words[21] = ('twenty-one');
-Words[22] = ('twenty-two');
-Words[23] = ('twenty-three');
-Words[24] = ('twenty-four');
-Words[25] = ('twenty-five');
-Words[26] = ('twenty-six');
-Words[27] = ('twenty-seven');
-Words[28] = ('twenty-eight');
-Words[29] = ('twenty-nine');
-Words[30] = ('thrity');
-Words[31] = ('thirty-one');
-Words[32] = ('thirty-two');
-Words[33] = ('thirty-three');
-Words[34] = ('thirty-four');
-Words[35] = ('thirty-five');
-Words[36] = ('thirty-six');
-Words[37] = ('thirty-seven');
-Words[38] = ('thirty-eight');
-Words[39] = ('thirty-nine');
-Words[40] = ('fourty');
-Words[41] = ('fourty-one');
-Words[42] = ('fourty-two');
-Words[43] = ('fourty-three');
-Words[44] = ('fourty-four');
-Words[45] = ('fourty-five');
-Words[46] = ('fourty-six');
-Words[47] = ('fourty-seven');
-Words[48] = ('fourty-eight');
-Words[49] = ('fourt-nine');
-Words[50] = ('fifty');
-Words[51] = ('fifty-one');
-Words[52] = ('fifty-two');
-Words[53] = ('fifty-three');
-Words[54] = ('fifty-four');
-Words[55] = ('fifty-five');
-Words[56] = ('fifty-six');
-Words[57] = ('fifty-seven');
-Words[58] = ('fifty-eight');
-Words[59] = ('fifty-nine');
 
 
+<script id="word_array">
 
-
- 
-
-//hours_words = words[hours]//
-//var time = Words[today.getHours()] + ":" + Words[today.getMinutes()] + ":" + Words[today.getSeconds()];
-
-//document.getElementById("currentTime").innerText = time;
-	//today.getHours()
-	//today.getMinutes()
-	//today.getSeconds()
-	document.getElementById("current_hour").innerText = Words[today.getHours()];
-	document.getElementById("current_minutes").innerText = Words[today.getMinutes()];
-	document.getElementById("current_seconds").innerText = Words[today.getSeconds()];
+var Words = []
+Words[0] = ('Zero');
+Words[1] = ('One');
+Words[2] = ('Two');
+Words[3] = ('Three');
+Words[4] = ('Four');
+Words[5] = ('Five');
+Words[6] = ('Six');
+Words[7] = ('Seven');
+Words[8] = ('Eight');
+Words[9] = ('Nine');
+Words[10] = ('Ten');
+Words[11] = ('Eleven');
+Words[12] = ('Twelve');
+Words[13] = ('Thirteen');
+Words[14] = ('Fourteen');
+Words[15] = ('Fifteen');
+Words[16] = ('Sixteen');
+Words[17] = ('Seventeen');
+Words[18] = ('Eighteen');
+Words[19] = ('Nineteen');
+Words[20] = ('Twenty');
+Words[21] = ('Twenty-One');
+Words[22] = ('Twenty-Two');
+Words[23] = ('Twenty-Three');
+Words[24] = ('Twenty-Four');
+Words[25] = ('Twenty-Five');
+Words[26] = ('Twenty-Six');
+Words[27] = ('Twenty-Seven');
+Words[28] = ('Twenty-Eight');
+Words[29] = ('Twenty-Nine');
+Words[30] = ('Thirty');
+Words[31] = ('Thirty-One');
+Words[32] = ('Thirty-Two');
+Words[33] = ('Thirty-Three');
+Words[34] = ('Thirty-Four');
+Words[35] = ('Thirty-Five');
+Words[36] = ('Thirty-Six');
+Words[37] = ('Thirty-Seven');
+Words[38] = ('Thirty-Eight');
+Words[39] = ('Thirty-Nine');
+Words[40] = ('Fourty');
+Words[41] = ('Fourty-One');
+Words[42] = ('Fourty-Two');
+Words[43] = ('Fourty-Three');
+Words[44] = ('Fourty-Four');
+Words[45] = ('Fourty-Five');
+Words[46] = ('Fourty-Six');
+Words[47] = ('Fourty-Seven');
+Words[48] = ('Fourty-Eight');
+Words[49] = ('Fourty-Nine');
+Words[50] = ('Fifty');
+Words[51] = ('Fifty-One');
+Words[52] = ('Fifty-Two');
+Words[53] = ('Fifty-Three');
+Words[54] = ('Fifty-Four');
+Words[55] = ('Fifty-Five');
+Words[56] = ('Fifty-Six');
+Words[57] = ('Fifty-Seven');
+Words[58] = ('Fifty-Eight');
+Words[59] = ('Fifty-Nine');
+Words[60] = ('Sixty');
+Words[61] = ('Sixty-One');
+Words[62] = ('Sixty-Two');
+Words[63] = ('Sixty-Three');
+Words[64] = ('Sixty-Four');
+Words[65] = ('Sixty-Five');
+Words[66] = ('Sixty-Six');
+Words[67] = ('Sixty-Seven');
+Words[68] = ('Sixty-Eight');
+Words[69] = ('Sixty-Nine');
+Words[70] = ('Seventy');
+Words[71] = ('Seventy-One');
+Words[72] = ('Seventy-Two');
+Words[73] = ('Seventy-Three');
+Words[74] = ('Seventy-Four');
+Words[75] = ('Seventy-Five');
+Words[76] = ('Seventy-Six');
+Words[77] = ('Seventy-Seven');
+Words[78] = ('Seventy-Eight');
+Words[79] = ('Seventy-Nine');
+Words[80] = ('Eighty');
+Words[81] = ('Eighty-One');
+Words[82] = ('Eighty-Two');
+Words[83] = ('Eighty-Three');
+Words[84] = ('Eighty-Four');
+Words[85] = ('Eighty-Five');
+Words[86] = ('Eighty-Six');
+Words[87] = ('Eighty-Seven');
+Words[88] = ('Eighty-Eight');
+Words[89] = ('Eighty-Nine');
+Words[90] = ('Ninety');
+Words[91] = ('Ninety-One');
+Words[92] = ('Ninety-Two');
+Words[93] = ('Ninety-Three');
+Words[94] = ('Ninety-Four');
+Words[95] = ('Ninety-Five');
+Words[96] = ('Ninety-Six');
+Words[97] = ('Ninety-Seven');
+Words[98] = ('Ninety-Eight');
+Words[99] = ('Ninety-Nine');
 </script>
+
+
+<script id="Months">
+
+Months = []
+Months[0] = "January"
+Months[1] = "February"
+Months[2] = "March"
+Months[3] = "April"
+Months[4] = "May"
+Months[5] = "June"
+Months[6] = "July"
+Months[7] = "Augest"
+Months[8] = "September"
+Months[9] = "October"
+Months[10] = "November"
+Months[11] = "December"
+
+</script>
+
+<script id = "time_grabber">
+
+// updates all the times
+async function getTime() {
+	var current_time = new Date()
+	hours = current_time.getHours();
+	// makes sure that the time gets updated so its not in military time
+	if (hours > 12){
+		hours -= 12
+		amPM = "PM"
+	};
+
+	// calculates out the centuries and other years
+	var year = current_time.getFullYear();
+	var current_year = year % 100;
+	var century = (year - current_year) / 100;
+	var year_full = Words[century] + " " + Words[current_year];
+
+
+	// sets the month in word form
+	var current_month = Months[current_time.getMonth()];
+
+
+	// sets the current day in word form
+	var current_day = Words[current_time.getDate()];
+	var date = year_full + ' ' + (current_month) + ' ' + current_day;
+
+	// grabs the current time for hours, minutes and seconds
+	document.getElementById("currentDate").innerText = date;
+	document.getElementById("current_hour").innerText = Words[hours] + amPM;
+	document.getElementById("current_minutes").innerText = Words[current_time.getMinutes()];
+	document.getElementById("current_seconds").innerText = Words[current_time.getSeconds()];
+	
+}
+</script>
+
+<script id = "time_updater">
+	setInterval(function() {
+		getTime()
+	}, 1000);
+</script>
+
+
 
 <script>
 	Dark = false;
  function darkMode() {
 	if (Dark == false) {
  		document.getElementById("test_text").style.backgroundColor = "Yellow";
-		document.bgColor = "Grey";
+		
 		Dark = true;
 	}
 	else {
-		document.bgColor = "White";
+		document.getElementById("test_text").style.backgroundColor = null;
+		
 		Dark = false;
-	
+	}
 
  }
+
 </script>
 
-		<button type="button" onclick="darkMode()">Dark mode</button>
+		<button id = "dark_mode" type="button" onclick="darkMode()">
+			Dark mode
+		</button>
+	<style>
+		
+		document {
+			background-image: image("wallpaper.png");
+		}
+	</style>
 	</body>
 </html>
