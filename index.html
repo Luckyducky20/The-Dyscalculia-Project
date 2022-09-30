@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<body background="wallpaper.png">
+	<body background="wallpaper2.jpg">
 	<p id="test_text">
 		demo text
 	</p>
@@ -8,6 +8,19 @@
 		h1 {
 			font-family: 'Oswald-Medium', 'Impact';
 		}
+		.Main_words {
+			text-align: center;
+			font-size: 80px;
+			color: white;
+
+			font-weight: bold;
+			-webkit-text-stroke: 2px black;
+			text-shadow: 0px 0px 150px white, 0px 0px 100px white;
+			box-shadow: 0px 0px 20px white, 0px 0px 70px rgb(1, 34, 73);
+			
+
+		}
+		
 	</style>
 Current Date:
 <p type="text" id="currentDate">
@@ -17,16 +30,27 @@ Current Date:
 	NA
 </p>
 
-Current Time:
- <p type = "text" id = "current_hour">
-	NA
- </p>
- <p type = "text" id = 'current_minutes'>
-	NA
- </p>
- <p type = "text" id ='current_seconds'>
-	NA
- </p>
+
+
+<head>
+	<div class="Main_words">
+		
+		<p type = "text"; id = "current_hour">
+			NA
+		</p>
+		<p type = "text" id = 'current_minutes'>
+			NA
+		</p>
+		<p type = "text" id ='current_seconds'>
+			NA
+		</p>
+		<p type="text" id="AMorPM">
+			NA
+		</p>
+	</div>
+
+</head>
+
 
 
 <script id="word_array">
@@ -162,8 +186,11 @@ async function getTime() {
 	// makes sure that the time gets updated so its not in military time
 	if (hours > 12){
 		hours -= 12
-		amPM = "PM"
-	};
+		document.getElementById("AMorPM").innerText = "PM"
+	} else {
+		document.getElementById("AMorPM").innerText = "AM"
+	}
+	
 
 	// calculates out the centuries and other years
 	var year = current_time.getFullYear();
@@ -182,9 +209,23 @@ async function getTime() {
 
 	// grabs the current time for hours, minutes and seconds
 	document.getElementById("currentDate").innerText = date;
-	document.getElementById("current_hour").innerText = Words[hours];
-	document.getElementById("current_minutes").innerText = Words[current_time.getMinutes()];
-	document.getElementById("current_seconds").innerText = Words[current_time.getSeconds()];
+	document.getElementById("current_hour").innerText = "Hours: " + Words[hours];
+	document.getElementById("current_minutes").innerText = "Minutes: " + Words[current_time.getMinutes()];
+	document.getElementById("current_seconds").innerText = "Seconds: " + Words[current_time.getSeconds()];
+
+
+
+	
+
+
+	// checks to see if it is currently noon or midnight
+	if (current_time.getHours() == 12) {
+		document.getElementById("current_hour").innerText = "Hours: Twelve";
+	}
+	if (current_time.getHours() == 0) {
+		document.getElementById("current_hour").innerText = "Hours: Twelve";
+	}
+
 	
 }
 </script>
