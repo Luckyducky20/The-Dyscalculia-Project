@@ -72,7 +72,9 @@ h1 {
     
 }
 
-
+.column {
+    width: 10em;    
+}
 .Main_words::before {
     content: '';
     position: absolute;

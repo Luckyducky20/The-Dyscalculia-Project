@@ -25,16 +25,16 @@
 <head>
 	<div class="Main_words Main_text">
 		<span></span>
-		<p type = "text"; id = "current_hour">
+		<p type = "text"; id = "current_hour" class="column">
 			NA
 		</p>
-		<p type = "text" id = 'current_minutes'>
+		<p type = "text" id = 'current_minutes' class="column">
 			NA
 		</p>
-		<p type = "text" id ='current_seconds'>
+		<p type = "text" id ='current_seconds' class="column">
 			NA
 		</p>
-		<p type="text" id="AMorPM">
+		<p type="text" id="AMorPM" class="column">
 			NA
 		</p>
 	</div>
@@ -195,7 +195,7 @@ async function getTime() {
 
 	// sets the current day in word form
 	var current_day = Words[current_time.getDate()];
-	var date = year_full + ' ' + (current_month) + ' ' + current_day;
+	var date =  (current_month) + ' ' + current_day + ' ' + year_full;
 
 	// grabs the current time for hours, minutes and seconds
 	document.getElementById("Date").innerText = date;
@@ -219,7 +219,7 @@ async function getTime() {
 <script id = "time_updater">
 	setInterval(function() {
 		getTime()
-	}, 1000);
+	}, 200);
 </script>
 
 
