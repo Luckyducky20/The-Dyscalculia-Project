@@ -6,16 +6,18 @@
 		<link rel="stylesheet" href="style.css"
 	</head>
 	<body background="wallpaper2.jpg">
-	<p id="test_text">
-		demo text
-	</p>
 
-Current Date:
+
 <p type="text" id="currentDate">
+	<span>
+		
+	</span>
 	<h1>
-		NA
+		Current Date:
 	</h1>
-	NA
+	<p id="Date">
+		NA
+	</p>
 </p>
 
 
@@ -196,7 +198,7 @@ async function getTime() {
 	var date = year_full + ' ' + (current_month) + ' ' + current_day;
 
 	// grabs the current time for hours, minutes and seconds
-	document.getElementById("currentDate").innerText = date;
+	document.getElementById("Date").innerText = date;
 	document.getElementById("current_hour").innerText = "Hours: " + Words[hours];
 	document.getElementById("current_minutes").innerText = "Minutes: " + Words[current_time.getMinutes()];
 	document.getElementById("current_seconds").innerText = "Seconds: " + Words[current_time.getSeconds()];
@@ -240,8 +242,8 @@ async function getTime() {
 
 </script>
 
-		<button id = "dark_mode" type="button" onclick="darkMode()">
-			High light
+		<button id = "dark_mode" type="button" onclick="darkMode()" style="display: none;">
+			Random button
 		</button>
 	<style>
 		
